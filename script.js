@@ -84,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
       filteredData = filteredData.filter(item =>
         item.NAME.toLowerCase().includes(searchQuery) ||
         item.STALL.toLowerCase().includes(searchQuery) ||
+        item.TYPE.toLowerCase().includes(searchQuery) ||
         item.BREWERY_NAME.toLowerCase().includes(searchQuery)
       );
     }
