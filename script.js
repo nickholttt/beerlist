@@ -152,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function () {
           <p><strong>ABV:</strong> ${beer.ABV}%</p>
           <p><strong>Style:</strong> ${beer.STYLE}</p>
           <p><strong>Type:</strong> ${beer.TYPE}</p>
-          <p>${beer.TASTING_NOTES}</p>
+          <p><strong>Tasting Notes:</strong> ${beer.TASTING_NOTES}</p>
       `;
     modal.style.display = 'block';
   }
