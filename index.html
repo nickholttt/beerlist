@@ -4,25 +4,67 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Beer Analysis</title>
+  <title>Beervana Beerlist 2024</title>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <h1>Beer Analysis</h1>
+  <h1>Beervana Beerlist 2024</h1>
   <div class="controls">
-    <label for="filterType">Filter by:</label>
-    <select id="filterType">
-      <option value="style">Style</option>
-      <option value="stall">Stall</option>
-    </select>
-    <label for="filterValue">Select:</label>
-    <select id="filterValue">
-      <option value="all">All</option>
-    </select>
+    <button id="filterButton">Filter</button>
+    <button id="sortButton">Sort</button>
+    <input type="text" id="searchInput" placeholder="Search...">
+    <button id="searchButton">Search</button>
+    <button id="resetButton">Reset Filters</button>
   </div>
   <div id="beerList"></div>
-  <div id="beerDescription"></div>
+
+  <!-- Filter Modal -->
+  <div id="filterModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeFilter">×</span>
+      <h2>Filter Options</h2>
+      <label for="filterType">Filter by:</label>
+      <select id="filterType">
+        <option value="style">Style</option>
+        <option value="stall">Stall</option>
+      </select>
+      <label for="filterValue">Select:</label>
+      <select id="filterValue">
+        <option value="all">All</option>
+      </select>
+      <label for="abvFilter">ABV:</label>
+      <select id="abvFilter">
+        <option value="all">All</option>
+        <option value="low">Low (< 5%)</option>
+        <option value="medium">Medium (5% - 7%)</option>
+        <option value="high">High (> 7%)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Sort Modal -->
+  <div id="sortModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeSort">×</span>
+      <h2>Sort Options</h2>
+      <label for="sortType">Sort by:</label>
+      <select id="sortType">
+        <option value="name">Name (A-Z)</option>
+        <option value="abvAsc">ABV (Low to High)</option>
+        <option value="abvDesc">ABV (High to Low)</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Modal for beer description -->
+  <div id="beerModal" class="modal">
+    <div class="modal-content">
+      <span class="close" id="closeBeer">×</span>
+      <div id="beerDescription"></div>
+    </div>
+  </div>
+
   <script src="script.js"></script>
 </body>
 
