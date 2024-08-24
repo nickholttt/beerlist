@@ -83,9 +83,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (searchQuery) {
       filteredData = filteredData.filter(item =>
         item.NAME.toLowerCase().includes(searchQuery) ||
-        item.STALL.toLowerCase().includes(searchQuery) ||
-        item.TYPE.toLowerCase().includes(searchQuery) ||
-        item.BREWERY_NAME.toLowerCase().includes(searchQuery)
+        item.BREWERY_NAME.toLowerCase().includes(searchQuery) ||
+        item.TASTING_NOTES.toLowerCase().includes(searchQuery)
       );
     }
 
@@ -98,8 +97,8 @@ document.addEventListener('DOMContentLoaded', function () {
       filteredData.sort((a, b) => b.ABV - a.ABV);
     }
 
-    const groupedByStallOrStyle = filteredData.reduce((acc, item) => {
-      const key = selectedFilter === 'style' ? item.STALL : item.STYLE;
+    const groupedByStallOrType = filteredData.reduce((acc, item) => {
+      const key = selectedFilter === 'type' ? item.STALL : item.TYPE;
       if (!acc[key]) {
         acc[key] = [];
       }
@@ -108,18 +107,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }, {});
 
     beerList.innerHTML = '';
-    for (const key in groupedByStallOrStyle) {
+    for (const key in groupedByStallOrType) {
       const groupDiv = document.createElement('div');
-      groupDiv.className = selectedFilter === 'style' ? 'stall' : 'style';
+      groupDiv.className = selectedFilter === 'type' ? 'stall' : 'type';
       const groupHeader = document.createElement('button');
       groupHeader.className = 'collapsible';
-      groupHeader.textContent = `${key} (${groupedByStallOrStyle[key].length} beers)`;
+      groupHeader.textContent = `${key} (${groupedByStallOrType[key].length} beers)`;
       groupDiv.appendChild(groupHeader);
 
       const contentDiv = document.createElement('div');
       contentDiv.className = 'content';
 
-      const beerNames = groupedByStallOrStyle[key].map(beer => {
+      const beerNames = groupedByStallOrType[key].map(beer => {
         const beerName = document.createElement('div');
         beerName.className = 'beer-name';
         beerName.textContent = beer.NAME;
@@ -151,15 +150,15 @@ document.addEventListener('DOMContentLoaded', function () {
           <h3>${beer.NAME}</h3>
           <p><strong>Brewery:</strong> ${beer.BREWERY_NAME}</p>
           <p><strong>ABV:</strong> ${beer.ABV}%</p>
-          <p><strong>Style:</strong> ${beer.STYLE}</p>
           <p><strong>Type:</strong> ${beer.TYPE}</p>
-          <p><strong>Tasting Notes:</strong> ${beer.TASTING_NOTES}</p>
+          <p><strong>Style:</strong> ${beer.STYLE}</p>
+          <p>${beer.TASTING_NOTES}</p>
       `;
     modal.style.display = 'block';
   }
 
   function resetFilters() {
-    filterType.value = 'style';
+    filterType.value = 'type';
     filterValue.value = 'all';
     abvFilter.value = 'all';
     sortType.value = 'name';
