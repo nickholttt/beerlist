@@ -7,6 +7,17 @@ body {
 h1 {
   text-align: center;
   color: #333;
+  size: 20%;
+}
+
+.logo-container {
+  text-align: center;
+  margin-bottom: 0px;
+}
+
+.logo {
+  max-width: 20%;
+  height: auto;
 }
 
 .controls {
