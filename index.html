@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beer Analysis</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Beer Analysis</h1>
+  <div class="controls">
+    <label for="filterType">Filter by:</label>
+    <select id="filterType">
+      <option value="style">Style</option>
+      <option value="stall">Stall</option>
+    </select>
+    <label for="filterValue">Select:</label>
+    <select id="filterValue">
+      <option value="all">All</option>
+    </select>
+  </div>
+  <div id="beerList"></div>
+  <div id="beerDescription"></div>
+  <script src="script.js"></script>
+</body>
+
+</html>
