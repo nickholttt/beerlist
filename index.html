@@ -9,7 +9,11 @@
 </head>
 
 <body>
-  <h1>Beervana Beerlist 2024</h1>
+  <div class="logo-container">
+    <img src="beervana_logo_keyline.svg" alt="Beervana Logo" class="logo">
+  </div>
+  <h1>Beerlist 2024
+  </h1>
   <div class="controls">
     <button id="filterButton">Filter</button>
     <button id="sortButton">Sort</button>
@@ -29,10 +33,12 @@
         <option value="style">Style</option>
         <option value="stall">Stall</option>
       </select>
+      <br><br>
       <label for="filterValue">Select:</label>
       <select id="filterValue">
         <option value="all">All</option>
       </select>
+      <br><br>
       <label for="abvFilter">ABV:</label>
       <select id="abvFilter">
         <option value="all">All</option>
